@@ -699,7 +699,7 @@
         }
       }
     },
-    "InboundResponsePortsNetworkAclEntry": {
+    "InboundTCPPortsNetworkAclEntry": {
       "Type": "AWS::EC2::NetworkAclEntry",
       "Properties": {
         "NetworkAclId": {
@@ -718,6 +718,23 @@
       "Metadata": {
         "AWS::CloudFormation::Designer": {
           "id": "728707ad-f78e-452c-bbdb-572933eb648b"
+        }
+      }
+    },
+    "InboundUDPPortsNetworkAclEntry": {
+      "Type": "AWS::EC2::NetworkAclEntry",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "NetworkAcl"
+        },
+        "RuleNumber": "102",
+        "Protocol": "17",
+        "RuleAction": "allow",
+        "Egress": "false",
+        "CidrBlock": "0.0.0.0/0",
+        "PortRange": {
+          "From": "1024",
+          "To": "65535"
         }
       }
     },
