@@ -169,12 +169,6 @@
       "c4.8xlarge": {
         "Arch": "HVM64"
       },
-      "g2.2xlarge": {
-        "Arch": "HVMG2"
-      },
-      "g2.8xlarge": {
-        "Arch": "HVMG2"
-      },
       "r3.large": {
         "Arch": "HVM64"
       },
