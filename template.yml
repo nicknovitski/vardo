@@ -13,6 +13,12 @@ Parameters:
   AMI:
     Description: Workstation AMI
     Type: AWS::EC2::Image::Id
+  VolumeSize:
+    Description: Size of workstation's ebs root volume, in gigabytes.
+    Type: Number
+    Default: 10
+    MinValue: 5
+    MaxValue: 50
   KeyName:
     Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
     Type: AWS::EC2::KeyPair::KeyName
@@ -216,6 +222,10 @@ Resources:
       ImageId: !Ref AMI
       InstanceType: !Ref InstanceType
       KeyName: !Ref KeyName
+      BlockDeviceMappings:
+        - DeviceName: "/dev/sda1"
+          Ebs:
+            VolumeSize: !Ref VolumeSize
       Tags:
       - Key: StackId
         Value: !Ref AWS::StackId
